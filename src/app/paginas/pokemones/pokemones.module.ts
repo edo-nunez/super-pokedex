@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms'; //Ahora tenemos un componente que permite una petición asíncrona
 // Navegaciòn
-import { RouterModule } from '@angular/router';
+import { RouterModule, RouterLink } from '@angular/router';
 // Hacer peticiones a internet
 import { HttpClientModule } from '@angular/common/http';
 import { IonicModule } from '@ionic/angular';
@@ -14,7 +14,7 @@ import { InfoPokemonComponent } from './componentes/info-pokemon/info-pokemon.co
 
 //Importar el servicio
 
-import {ObtenerPokemonService} from './servicios/obtener-pokemon.service'
+import {ObtenerPokemonService} from './servicios/obtener-pokemon.service';
 
 @NgModule({
   imports: [
@@ -24,7 +24,8 @@ import {ObtenerPokemonService} from './servicios/obtener-pokemon.service'
     PokemonesPageRoutingModule,
     RouterModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
   ],
   declarations: [PokemonesPage, InfoPokemonComponent],
   providers: [ObtenerPokemonService] //Gracias a este proveedor, el servicio puede ocupar los diferentes módulos. En providers también van directivas

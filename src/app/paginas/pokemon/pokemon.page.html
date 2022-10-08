@@ -1,9 +1,55 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>pokemon</ion-title>
+    <a href="/">Volver</a>
+    <ion-title>Estadísticas completas</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  {{ nombre }}
+<ion-content fullscreen="">
+  <div class="atrapalosYa">
+    <div align="center">
+      <h4>{{carta.pokemon.name}}</h4>
+    </div>
+    <img [src]="carta.pokemon.sprites.front_default" width="100%" alt=""><br>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="8">
+          Experiencia base:
+        </ion-col>
+        <ion-col size="4">
+          {{carta.pokemon.base_experience}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <h3>Estadísticas:</h3>
+    <ion-grid>
+      <ion-row *ngFor="let elemento of carta.pokemon.stats">
+        <ion-col size="4">
+          {{elemento.stat.name}}
+        </ion-col>
+        <ion-col size="5">
+          :
+        </ion-col>
+        <ion-col size="3">
+          {{elemento.base_stat}}
+        </ion-col>
+      </ion-row>
+    </ion-grid><br>
+    <h3>Movimientos:</h3>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let movimiento of carta.pokemon.moves">
+          {{movimiento.move.name}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <h3>Habilidades</h3>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let habilidad of carta.pokemon.abilities">
+          {{habilidad.ability.name}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>

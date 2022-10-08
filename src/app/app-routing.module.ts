@@ -14,7 +14,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes) //Al precargar los mòdulos, el módulo de pokemon no está recibiendo ningún parámetro
   ],
   exports: [RouterModule]
 })

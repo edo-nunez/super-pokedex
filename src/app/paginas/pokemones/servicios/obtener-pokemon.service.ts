@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'; //Quiero crear la inyección de dependencia en el constructor
 import { ResultadoPeticion, Info } from 'src/app/modelo/resultado-peticion'; //Este es el que se muestra por pantalla
-import { Pokemon } from 'src/app/modelo/pokemon'; //
+import { PokemonCompleto } from 'src/app/modelo/pokemon-completo';
 
 @Injectable() //Se usa para inyectar el servicio manualmente al módulo que uno use y declararlo ahí
 export class ObtenerPokemonService {
-  private url: string = 'https://pokeapi.co/api/v2/pokemon';
+  private url: string = 'https://pokeapi.co/api/v2/pokemon/';
   public resultado!: ResultadoPeticion;
   public informaciones: Array<Info> = [];
+  public pokemon!: PokemonCompleto;
 
   constructor(
     private client: HttpClient //Inyecto la dependencia
@@ -27,6 +28,11 @@ export class ObtenerPokemonService {
       this.informaciones.push(...peticion.results);
       //Cada vez que ejecute esta función, va a buscar los siguientes 20;
       //pero cuidado, que se reemplazan los 20 pokemones anteriores del historial. Se debe crear un 'array' en la línea 10
+    });
+  }
+  public obtenerPokemon(nombrePokemon:string){
+    this.client.get<PokemonCompleto>(this.url+nombrePokemon).subscribe(pintado => {
+      this.pokemon = pintado;
     });
   }
 }

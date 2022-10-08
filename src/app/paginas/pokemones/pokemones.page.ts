@@ -25,7 +25,7 @@ export class PokemonesPage implements OnInit {
       //Primer parámetro: valor del elemento
       //Segundo parámetro: validaciones síncronas (required, expresiones regulares) o validaciones personalizadas ('custom')
       //Tercer parámetro: validaciones asíncronas (desde internet)
-      nombrePokemon: new FormControl('Hola',[
+      nombrePokemon: new FormControl('',[
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(15)
