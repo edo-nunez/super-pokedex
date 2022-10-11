@@ -55,6 +55,21 @@ type Type2 = {
   type : Type2
  }
 
+ type Forms = {
+  name: string,
+  url: string
+ }
+
+ type Version = {
+  name: string,
+  url: string
+ }
+
+ type Game_indices = {
+  game_index: number,
+  version: Array<Version>
+ }
+
  export interface PokemonCompleto {
   name: string, //fuera
   order: number, //fuera
@@ -66,8 +81,14 @@ type Type2 = {
   is_default: boolean //Pokemon inicial, fuera
   location_area_encounters: string, //Encuentros por área de ubicación, dentro
   moves: Array<Move>, //Movimientos, dentro
-  sprites: Sprites, //Fotos, fuera
+  sprites: Array<Sprites>, //Fotos, fuera
   stats : Array<Stat>, //Estadísticas, dentro
-  types : Array<Type> //Tipo, fuera
+  types : Array<Type>, //Tipo, fuera
+  forms : Array<Forms>,
+  version : Array<Version>,
+  game_indices : Array<Game_indices>,
+
+
+
 
 }
