@@ -67,7 +67,10 @@ type Type2 = {
 
  type Game_indices = {
   game_index: number,
-  version: Array<Version>
+  version: {
+    name: string,
+    url: string
+  }
  }
 
  export interface PokemonCompleto {

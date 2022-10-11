@@ -11,6 +11,10 @@
       <h4>{{carta.pokemon.name}}</h4>
     </div>
     <img [src]="carta.pokemon.sprites.front_default" width="100%" alt=""><br>
+    <img [src]="carta.pokemon.sprites.front_female" width="100%" alt=""><br>
+    <img [src]="carta.pokemon.sprites.front_shiny" width="100%" alt=""><br>
+    <img [src]="carta.pokemon.sprites.front_shiny_female" width="100%" alt=""><br>
+
     <ion-grid>
       <ion-row>
         <ion-col size="8">
@@ -95,7 +99,7 @@
       <ion-row>
         <ion-col size="6" *ngFor="let versiones of carta.pokemon.game_indices">
           {{versiones.game_index}}<br>
-          {{versiones.version}}
+          {{versiones.version.name}}
         </ion-col>
       </ion-row>
     </ion-grid>
